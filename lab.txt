@@ -1,0 +1,151 @@
+# ===== CONNECT TO EMORY =====
+
+ssh focardo@lab0z.mathcs.emory.edu
+
+# See available lab machines
+cat /tmp/labmachines
+
+# Connect to an idle lab machine
+ssh -X lab3c
+
+
+# ===== NAVIGATION =====
+
+# Show current directory
+pwd
+
+# List files/folders
+ls
+
+# List with directory markers
+ls -F
+
+# Go to CS255
+cd ~/cs255
+
+# Go to exercises
+cd ~/cs255/exercises
+
+# Go to a specific exercise folder
+cd ~/cs255/exercises/0901
+
+# Go up one directory
+cd ..
+
+# Go to home directory
+cd ~
+
+
+# ===== CREATE FILES / FOLDERS =====
+
+# Create a folder
+mkdir exercises
+
+# Create a dated exercise folder
+mkdir 0901
+
+
+# ===== COPY FILES =====
+
+# General format
+cp SOURCE DESTINATION
+
+# Example: copy class file into current folder
+cp /home/cs255002/share/calc.c calc.c
+
+# Copy into current directory
+cp /home/cs255002/share/cs255_scavenger_hunt.zip .
+
+# Copy file into another folder
+cp maps/directions.txt workspace/
+
+
+# ===== VIEW FILES =====
+
+# Print a file
+cat calc.c
+
+# Print another file using a path
+cat logs/notes.txt
+
+# Show available lab machines
+cat /tmp/labmachines
+
+
+# ===== EDIT C FILES =====
+
+# Open in Emacs
+emacs calc.c
+
+# Save in Emacs:
+# Ctrl + X
+# Ctrl + S
+
+# Exit Emacs:
+# Ctrl + X
+# Ctrl + C
+
+
+# ===== COMPILE C =====
+
+# Compile and use default executable name a.out
+gcc calc.c
+
+# Run
+./a.out
+
+# Better: choose executable name
+gcc calc.c -o calc
+
+# Run
+./calc
+
+
+# ===== ZIP FILES =====
+
+# Extract ZIP
+unzip cs255_scavenger_hunt.zip
+
+
+# ===== DELETE =====
+
+# Delete a file
+rm filename.txt
+
+# Example
+rm sandbox/trashme/deleteme.txt
+
+# Delete an empty directory
+rmdir sandbox/trashme
+
+
+# ===== LEAVE LAB =====
+
+# Leave lab3c and return to lab0z
+exit
+
+# Leave lab0z and return to your Mac
+exit
+
+
+# ===== IMPORTANT SYMBOLS =====
+
+# ~  = home directory
+# .  = current directory
+# .. = parent directory
+# /  = root / path separator
+
+
+# ===== NORMAL CS255 WORKFLOW =====
+
+ssh focardo@lab0z.mathcs.emory.edu
+cat /tmp/labmachines
+ssh -X lab3c
+
+cd ~/cs255/exercises/0901
+ls
+
+emacs calc.c
+
+gcc calc.c -o calc
+./calc

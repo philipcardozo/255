@@ -1,0 +1,1 @@
+minCoins.c, collatzSteps.c, dayOfWeek.c, isPalindrome.c, and computeStats.c 

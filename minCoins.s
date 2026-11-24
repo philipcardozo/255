@@ -34,7 +34,7 @@ mincoins_pennies:
 
 #### Do not remove this separator. Place all of your code above this line and below the previous separator. ####
 
-	addi $sp, $sp -4
+	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	
 	la $a0, cents_string

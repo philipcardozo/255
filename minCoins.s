@@ -6,25 +6,25 @@ main:
 	lw $t0, cents
 	li $t1, 0                 # count
 
-quarters:
-	blt $t0, 25, dimes
+mincoins_quarters:
+	blt $t0, 25, mincoins_dimes
 	addi $t1, $t1, 1
 	addi $t0, $t0, -25
-	j quarters
+	j mincoins_quarters
 
-dimes:
-	blt $t0, 10, nickels
+mincoins_dimes:
+	blt $t0, 10, mincoins_nickels
 	addi $t1, $t1, 1
 	addi $t0, $t0, -10
-	j dimes
+	j mincoins_dimes
 
-nickels:
-	blt $t0, 5, pennies
+mincoins_nickels:
+	blt $t0, 5, mincoins_pennies
 	addi $t1, $t1, 1
 	addi $t0, $t0, -5
-	j nickels
+	j mincoins_nickels
 
-pennies:
+mincoins_pennies:
 	add $t1, $t1, $t0         # Add the remaining pennies
 	sw $t0, cents
 	sw $t1, count

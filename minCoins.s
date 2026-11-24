@@ -7,19 +7,22 @@ main:
 	li $t1, 0                 # count
 
 mincoins_quarters:
-	blt $t0, 25, mincoins_dimes
+	slti $t2, $t0, 25
+	bne $t2, $zero, mincoins_dimes
 	addi $t1, $t1, 1
 	addi $t0, $t0, -25
 	j mincoins_quarters
 
 mincoins_dimes:
-	blt $t0, 10, mincoins_nickels
+	slti $t2, $t0, 10
+	bne $t2, $zero, mincoins_nickels
 	addi $t1, $t1, 1
 	addi $t0, $t0, -10
 	j mincoins_dimes
 
 mincoins_nickels:
-	blt $t0, 5, mincoins_pennies
+	slti $t2, $t0, 5
+	bne $t2, $zero, mincoins_pennies
 	addi $t1, $t1, 1
 	addi $t0, $t0, -5
 	j mincoins_nickels

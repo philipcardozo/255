@@ -3,11 +3,38 @@
 main:
 
 #### Do not remove this separator. Place all of your code below this line and above the next separator. ####
-	
+	lw $t0, cents
+	li $t1, 0                 # count
+
+mincoins_quarters:
+	slti $t2, $t0, 25
+	bne $t2, $zero, mincoins_dimes
+	addi $t1, $t1, 1
+	addi $t0, $t0, -25
+	j mincoins_quarters
+
+mincoins_dimes:
+	slti $t2, $t0, 10
+	bne $t2, $zero, mincoins_nickels
+	addi $t1, $t1, 1
+	addi $t0, $t0, -10
+	j mincoins_dimes
+
+mincoins_nickels:
+	slti $t2, $t0, 5
+	bne $t2, $zero, mincoins_pennies
+	addi $t1, $t1, 1
+	addi $t0, $t0, -5
+	j mincoins_nickels
+
+mincoins_pennies:
+	add $t1, $t1, $t0         # Add the remaining pennies
+	sw $t0, cents
+	sw $t1, count
 
 #### Do not remove this separator. Place all of your code above this line and below the previous separator. ####
 
-	addi $sp, $sp -4
+	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	
 	la $a0, cents_string

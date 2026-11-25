@@ -2,9 +2,17 @@
 main:
 
 #### Do not remove this separator. Place all of your code below this line and above the next separator. ####
-	
+	lw $t0, n
+	bltz $t0, negative
+	move $t1, $t0
+	j absolute_done
 
-	
+negative:
+	sub $t1, $zero, $t0
+
+absolute_done:
+	sw $t1, abs_val
+
 #### Do not remove this separator. Place all of your code above this line and below the previous separator. ####
 
 	addi $sp, $sp, -4
